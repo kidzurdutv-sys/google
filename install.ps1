@@ -4,7 +4,7 @@ $ErrorActionPreference = "Stop"
 $appData = [Environment]::GetFolderPath("ApplicationData")
 $revitAddinsBase = Join-Path $appData "Autodesk\Revit\Addins"
 
-$supportedVersions = @("2024", "2025")
+$supportedVersions = @("2019")
 $installedVersions = @()
 
 foreach ($version in $supportedVersions) {
@@ -15,7 +15,7 @@ foreach ($version in $supportedVersions) {
 }
 
 if ($installedVersions.Count -eq 0) {
-    Write-Host "No supported Revit versions (2024 or 2025) found on this system. Installing for both by default." -ForegroundColor Yellow
+    Write-Host "No supported Revit versions (2019) found on this system. Installing for 2019 by default." -ForegroundColor Yellow
     $installedVersions = $supportedVersions
 }
 
@@ -47,8 +47,8 @@ foreach ($version in $installedVersions) {
         New-Item -ItemType Directory -Path $appFolder -Force | Out-Null
     }
 
-    # Determine which target framework to use based on version
-    $tfm = if ($version -eq "2024") { "net48" } else { "net8.0-windows" }
+    # We only have one target framework now
+    $tfm = "net472"
 
     $sourceDir = Join-Path $scriptDir "AllInOneMEP\src\AllInOneMEP.Revit\bin\Release\$tfm"
 

@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $appData = [Environment]::GetFolderPath("ApplicationData")
 $revitAddinsBase = Join-Path $appData "Autodesk\Revit\Addins"
 
-$supportedVersions = @("2024", "2025")
+$supportedVersions = @("2019")
 
 foreach ($version in $supportedVersions) {
     Write-Host "Uninstalling from Revit $version..." -ForegroundColor Cyan
