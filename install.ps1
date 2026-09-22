@@ -1,5 +1,20 @@
 $ErrorActionPreference = "Stop"
 
+# Detect if dotnet CLI is installed
+try {
+    $dotnetVersion = & dotnet --version 2>$null
+    if ($LASTEXITCODE -ne 0) { throw "dotnet not found" }
+} catch {
+    Write-Host "============================================================" -ForegroundColor Red
+    Write-Host "ERROR: The '.NET SDK' is not installed or not in your PATH." -ForegroundColor Red
+    Write-Host "This add-in requires the .NET SDK to compile the source code." -ForegroundColor Red
+    Write-Host "Please download and install it from:" -ForegroundColor Yellow
+    Write-Host "https://dotnet.microsoft.com/en-us/download" -ForegroundColor Yellow
+    Write-Host "After installing, please restart your command prompt / computer and try again." -ForegroundColor Yellow
+    Write-Host "============================================================" -ForegroundColor Red
+    return
+}
+
 # Detect Revit Versions
 $appData = [Environment]::GetFolderPath("ApplicationData")
 $revitAddinsBase = Join-Path $appData "Autodesk\Revit\Addins"
