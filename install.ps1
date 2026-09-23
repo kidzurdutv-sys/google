@@ -38,7 +38,7 @@ $scriptDir = $PSScriptRoot
 if ([string]::IsNullOrEmpty($scriptDir)) {
     $scriptDir = Get-Location
 }
-$slnPath = Join-Path $scriptDir "AllInOneMEP\AllInOneMEP.sln"
+$slnPath = Join-Path $scriptDir "AllInOneMEP"
 
 # Compile the solution to get the DLLs
 Write-Host "Compiling AllInOneMEP Solution..." -ForegroundColor Cyan
