@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AllInOneMEP.Core/AllInOneMEP.Core.csproj" />
+    <Project Path="src/AllInOneMEP.Revit/AllInOneMEP.Revit.csproj" />
+    <Project Path="src/AllInOneMEP.UI/AllInOneMEP.UI.csproj" />
+  </Folder>
+</Solution>
