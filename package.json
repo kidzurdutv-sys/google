@@ -1,0 +1,12 @@
+{
+  "name": "gamer-fox-app",
+  "version": "1.0.0",
+  "description": "App to serve the Gamer Fox SVG",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
